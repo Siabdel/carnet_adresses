@@ -11,7 +11,7 @@ $ clone git clone https://github.com/Siabdel/carnet_adresses/
 ### 2. installer client vuejs & bootstrap
 
 ```sh
-* sudo npm install -g @vue/cli
+* $ sudo npm install -g @vue/cli
 * $ npm install bootstrap3
 * $ npm install jquery popper.js moment.js
 ``` 
