@@ -6,7 +6,9 @@ application vuejs pour gérer un carnet
 
 ### 1. clonez le projet 
 
+```sh
 $ clone git clone https://github.com/Siabdel/carnet_adresses/
+```
 
 ### 2. installer client vuejs & bootstrap
 
@@ -18,4 +20,7 @@ $ clone git clone https://github.com/Siabdel/carnet_adresses/
 
 ### 3. lancement de l'application 
 
+```sh
 * $ npm run serve
+```
+
