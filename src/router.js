@@ -27,7 +27,13 @@ export default new Router({
         name : "user_list", 
         path : "/users/list",
         component : UserList,
-
+        beforeEnter : (to, from, next) => {
+            if(authAPI.isAuthenticated() === false){
+                next("/login")
+            } else{
+                next()
+            }
+        }
     },
 
     {
@@ -35,7 +41,7 @@ export default new Router({
         path : "/user/:userId",
         component : UserDetails,
         beforeEnter : (to, from, next) => {
-            if( authAPI.isAuthentificated === false){
+            if( authAPI.isAuthenticated() === false){
                 next('/login')
             }else{
                 next()
