@@ -20,8 +20,17 @@
 </template>
 
 <script>
-
+import { mapActions } from "vuex";
 export default {
   name: 'App',
+
+  // methods 
+  methods :{
+    ...mapActions(["fetchUsers", "test_action"])
+  },
+  // created
+  created(){
+    this.fetchUsers();
+  },
 };
 </script>

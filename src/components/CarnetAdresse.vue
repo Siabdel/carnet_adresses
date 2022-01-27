@@ -28,7 +28,7 @@
                             <router-link 
                                 :to="{
                                     name : 'user' , 
-                                    params: {userId:contacte} 
+                                    params: {contacte:contacte} 
                                     }"> 
                                 Show</router-link>
                         </span>

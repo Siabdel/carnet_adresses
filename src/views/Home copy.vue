@@ -13,10 +13,9 @@
 <script>
 import CarnetAdresse from "../components/CarnetAdresse.vue";
 import SearchBox  from "../components/SearchBox.vue";
-import { mapGetters, mapState } from "vuex"
 
 export default {
-  name: 'Home',
+  name: 'App',
   components: {
     CarnetAdresse,
     SearchBox,
@@ -28,12 +27,20 @@ export default {
       sortBy : "nom",
     }
   },
+  created() {
+      let url = `http://51.178.136.190:93/apipro/directories/`
+
+      // ajax load
+      fetch(url)
+      .then(response => response.json())
+      .then(json => {
+        this.adresses = json;
+        //console.log(" data = " + this.adresses[0].nom )
+        })  
+      .catch(err =>err.msg)
+  },
 
   methods: {
-    // map users
-    ...mapState(["users", "message"]),
-    ...mapGetters(["getUsers", "getMessage"] ),
-    // ---
     include_contactes(search){
       // expression reguliere dans vuejs
       const url = 'https://google.com/foo/bar';
@@ -68,12 +75,6 @@ export default {
       }
     }
   },
-
-  mounted(){
-    this.adresses = this.getUsers()
-    console.log("data users !! = " + this.getUsers())
-    console.log("message ... !! = " + this.getMessage())
-  }
 }
 </script>
 
