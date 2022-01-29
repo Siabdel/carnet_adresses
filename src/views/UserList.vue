@@ -28,7 +28,7 @@ import CarnetAdresse from "../components/CarnetAdresse.vue";
 import SearchBox  from "../components/SearchBox.vue";
 
 export default {
-  name: 'App',
+  name: 'UserList',
   components: {
     CarnetAdresse,
     SearchBox,
