@@ -31,6 +31,7 @@ export default {
   // created
   created(){
     this.fetchUsers();
+    console.log("fetchUsers = ... !!" )
   },
 };
 </script>

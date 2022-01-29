@@ -71,8 +71,8 @@ export default {
 
   mounted(){
     this.adresses = this.getUsers()
-    console.log("data users !! = " + this.getUsers())
-    console.log("message ... !! = " + this.getMessage())
+    //console.log("data users !! = " + this.getUsers())
+    //console.log("message ... !! = " + this.getMessage())
   }
 }
 </script>

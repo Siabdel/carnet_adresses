@@ -1,16 +1,5 @@
 <template>
-  <div id="app">
-    <ul class="list-group list-group-horizontal list-inline text-bold">
-      <li class="list-group_item">
-        <router-link to="/home"> Accueil</router-link>
-      </li>
-      <li class="list-group_item">
-        <router-link to="/login">Login</router-link>
-      </li>
-      <li class="list-group_item">
-        <router-link to="http://51.178.136.190:93/apipro/directories/home/">API</router-link>
-      </li>
-    </ul>
+  <div id="container">
 
     <h3> Liste des contactes ** </h3>
 
@@ -26,6 +15,7 @@
 <script>
 import CarnetAdresse from "../components/CarnetAdresse.vue";
 import SearchBox  from "../components/SearchBox.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: 'App',
@@ -40,20 +30,14 @@ export default {
       sortBy : "nom",
     }
   },
-  created() {
-      let url = `http://51.178.136.190:93/apipro/directories/`
-
-      // ajax load
-      fetch(url)
-      .then(response => response.json())
-      .then(json => {
-        this.adresses = json;
-        //console.log(" data = " + this.adresses[0].nom )
-        })  
-      .catch(err =>err.msg)
-  },
-
+  created(){
+    this.adresses = this.getUsers()
+  } 
+  ,
   methods: {
+    //map 
+    ...mapGetters(['getUsers', ]),
+
     include_contactes(search){
       // expression reguliere dans vuejs
       const url = 'https://google.com/foo/bar';
