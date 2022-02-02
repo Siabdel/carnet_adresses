@@ -1,40 +1,52 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Siabdel 
+Siabdel
+/
+carnet_adresses
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+carnet_adresses/src/views/UserList.vue
+@Siabdel
+Siabdel correction composant Home & UserList
+Latest commit 4797226 4 days ago
+ History
+ 1 contributor
+87 lines (76 sloc)  1.9 KB
+  
 <template>
-<<<<<<< HEAD
-  <div class="container">
-    <h3> Home </h3>
-=======
   <div id="container">
 
     <h3> Liste des contactes ** </h3>
 
     <hr/>
->>>>>>> zone_vuex
 
     <img alt="Vue logo" src="../assets/logo.png">
     <SearchBox @searchKey="include_contactes" />
 
-<<<<<<< HEAD
-    <CarnetAdresse :contactes="reload_contactes" :afficher="(searchBy)?true:false"/>
-    
-=======
     <CarnetAdresse :contactes="reload_contactes" :afficher="true" />
->>>>>>> zone_vuex
   </div>
 </template>
 
 <script>
 import CarnetAdresse from "../components/CarnetAdresse.vue";
 import SearchBox  from "../components/SearchBox.vue";
-<<<<<<< HEAD
-
-export default {
-  name: 'UserList',
-=======
 import { mapGetters } from "vuex";
-
 export default {
   name: 'App',
->>>>>>> zone_vuex
   components: {
     CarnetAdresse,
     SearchBox,
@@ -46,22 +58,6 @@ export default {
       sortBy : "nom",
     }
   },
-<<<<<<< HEAD
-  created() {
-      let url = `http://51.178.136.190:93/apipro/directories/`
-
-      // ajax load
-      fetch(url)
-      .then(response => response.json())
-      .then(json => {
-        this.adresses = json;
-        //console.log(" data = " + this.adresses[0].nom )
-        })  
-      .catch(err =>err.msg)
-  },
-
-  methods: {
-=======
   created(){
     this.adresses = this.getUsers()
   } 
@@ -69,21 +65,17 @@ export default {
   methods: {
     //map 
     ...mapGetters(['getUsers', ]),
-
->>>>>>> zone_vuex
     include_contactes(search){
       // expression reguliere dans vuejs
       const url = 'https://google.com/foo/bar';
       const regex = /^(https.+)\/.*$/ig;
       const matches = regex.exec(url);
       console.log( "matches = " + matches[1]) ;/* 1 = group index */
-
       //console.log("terms search !!! = " + search)
       this.searchBy = search.toLowerCase()
       //return this.adresses.filter(contacte => contacte.nom.includes(search))
       return this.adresses
     },
-
     compare(a, b) {
       if (a.nom < b.nom)
         return -1;
@@ -92,7 +84,6 @@ export default {
       return 0;
     }
   },
-
   computed : 
   {
     reload_contactes(){
