@@ -1,40 +1,21 @@
 <template>
-<<<<<<< HEAD
   <div class="container">
     <h3> Home </h3>
-=======
-  <div id="container">
-
-    <h3> Liste des contactes ** </h3>
-
-    <hr/>
->>>>>>> zone_vuex
 
     <img alt="Vue logo" src="../assets/logo.png">
     <SearchBox @searchKey="include_contactes" />
 
-<<<<<<< HEAD
     <CarnetAdresse :contactes="reload_contactes" :afficher="(searchBy)?true:false"/>
     
-=======
-    <CarnetAdresse :contactes="reload_contactes" :afficher="true" />
->>>>>>> zone_vuex
   </div>
 </template>
 
 <script>
 import CarnetAdresse from "../components/CarnetAdresse.vue";
 import SearchBox  from "../components/SearchBox.vue";
-<<<<<<< HEAD
 
 export default {
   name: 'UserList',
-=======
-import { mapGetters } from "vuex";
-
-export default {
-  name: 'App',
->>>>>>> zone_vuex
   components: {
     CarnetAdresse,
     SearchBox,
@@ -46,7 +27,6 @@ export default {
       sortBy : "nom",
     }
   },
-<<<<<<< HEAD
   created() {
       let url = `http://51.178.136.190:93/apipro/directories/`
 
@@ -61,16 +41,6 @@ export default {
   },
 
   methods: {
-=======
-  created(){
-    this.adresses = this.getUsers()
-  } 
-  ,
-  methods: {
-    //map 
-    ...mapGetters(['getUsers', ]),
-
->>>>>>> zone_vuex
     include_contactes(search){
       // expression reguliere dans vuejs
       const url = 'https://google.com/foo/bar';
