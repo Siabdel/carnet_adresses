@@ -1,8 +1,8 @@
 import Vue from "vue"
 import Router from "vue-router"
 import Login from "./views/Login.vue";
-import UserList from "./views/UserList.vue";
-import UserDetails from "./views/UserDetails.vue";
+import ContacteList from "./views/ContacteList.vue";
+import ContacteDetails from "./views/ContacteDetails.vue";
 import Home from "./views/Home.vue";
 import authAPI from "./auth.js";
 
@@ -24,24 +24,18 @@ export default new Router({
     },
 
     {
-        name : "user_list", 
-        path : "/users/list",
-        component : UserList,
-        beforeEnter : (to, from, next) => {
-            if(authAPI.isAuthenticated() === false){
-                next("/login")
-            } else{
-                next()
-            }
-        }
+        name : "Contacte_list", 
+        path : "/Contactes/list",
+        component : ContacteList,
+
     },
 
     {
-        name : "user",
-        path : "/user/:userId",
-        component : UserDetails,
+        name : "Contacte",
+        path : "/Contacte/:userId",
+        component : ContacteDetails,
         beforeEnter : (to, from, next) => {
-            if( authAPI.isAuthenticated() === false){
+            if( authAPI.isAuthentificated === false){
                 next('/login')
             }else{
                 next()
