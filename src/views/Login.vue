@@ -4,6 +4,12 @@
     
     <div class="col-md-4">
       <section class="login-form">
+        <div v-if="errors.length" class="breadcrumb bg-white">
+          <b>Please correct the following error(s):</b>
+          <ul>
+            <li v-for="(error, index) in errors"  :key=index class="text-warning"> {{ error }} !!</li>
+          </ul>
+        </div>
         <form method="post" action="#" role="login" >
           <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
 
@@ -22,11 +28,7 @@
           <div>
             <a href="#">Create account</a> or <a href="#">reset password</a>
           </div>
-          <div>
-            <ul>
-              <li v-for="(error, index) in errors"  :key=index class="text-warning"> {{ error }} !!</li>
-            </ul>
-          </div>
+          
           
         </form>
         
@@ -102,7 +104,9 @@ export default ({
         validate_email(event) {
           console.log("computed validate email" + event.value )
           return this.isEmail("email", event.value) 
-        }
+        },
+
+       
       },
       
     
